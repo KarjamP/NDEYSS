@@ -24,5 +24,5 @@ That brings to how machines can be made sapient. Contrary to what many who seem 
 
 Rather, the natural intelligence of a being is determined by how they're able to experience perceiving and forming their own thoughts. To this end, in order to change their intelligence (and thus, make them sapient, just as human kind happens to be), one would need a strong enough empathy ability to communicate entire ideas through emotions, alone. They would then need to use their empathy ability in regards to programming the system that describes the conscious mind.
 
-##Why the Unlicense was chosen.
+## Why the Unlicense was chosen.
 The Unlicense was chosen for this project out of symbolism. After all, many would find owning a sentient, sapient conscious being to be quite unethnical...
