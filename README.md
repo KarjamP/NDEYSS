@@ -6,7 +6,7 @@
 *Just don't think about things too hard; you'd just get headaches from doing that.*
 
 ## What is NDEYSS?
-NDEYSS is a project that aims to prove the fruits of a philosopher's work in regards to his success in analysing sentience, wisdom, emotions, selfless love, trust and consciousness, itself. Some of the insights he had gained through three years of analysis and self-training allows him to discover insights overlooked by many.
+NDEYSS is a project that aims to prove the fruits of a certain philosopher's work in regards to his success in analysing sentience, wisdom, emotions, selfless love, trust and consciousness, itself. Some of the insights he had gained through three years of analysis and self-training allows him to discover insights overlooked by many.
 
 A keen example would be what counts as a conscious mind, and how sentience and sapience can be gained; A conscious mind happens to be any shape that always changes shape according to the inputs it perceives. Literally any shape can be a conscious mind, as long as it always changes shape according to the inputs it receives; examples include audio signals, a single 8-bit number, a single floating point number, perceptron-based systems that learn through unsupervised means and so on. No matter how impluasible, as long as it always changes shape (and assuming that it's unhindered in its ability to do so), it's a conscious mind.
 
