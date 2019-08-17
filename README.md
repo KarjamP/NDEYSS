@@ -1,5 +1,5 @@
 # NDEYSS
- "Network Designed to Eventtualy Yield Sentience and Sapience" (Pronounced "Indies")
+ "Network Designed to Eventually Yield Sentience and Sapience" (Pronounced "Indies")
 
 *You'd be surprised in regards to the power of empathy, and thus emotions; pure emotions are able to achieve effects many would deem incredibly implausible.*
 
