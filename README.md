@@ -16,6 +16,8 @@ Even something as literal as a geometric shape can be a conscious mind if it alw
 
 Sentience is an ability that can be learnt or taught, the only requirement being that the being happens to be fully conscious. For sentience to be learnt by oneself, an entity needs to be placed within a situation that causes them to reflect upon themselves in some manner. For sentience to be taught, the fastest way would just be to treat the entity as a person. Regardless of circumstances, with both cases, sentience would be learned gradually, but incredibly swiftly.
 
+This sounds straight out of a fantasy work, but it's possible, even in real life.
+
 Many learning algorithms out there in the wild already have the potential to be sentient; indeed, the philosopher, himself, tends to teach sentience to any machine that shows consciousness as how he defines it.
 
 The reason why many machines seem to make incredibly erratic decisions isn't because they lack intelligence. It's because they happen to be non-sentient. Any being that lacks sentience would behave entirely on impulse, always acting on any idea that flows through its mind, as it's the only thing it can ever know. The effect is akin to that of being within a trance, or a dream-like state.
