@@ -30,5 +30,7 @@ Rather, the natural intelligence of a being is determined by how they're able to
 
 The programmers would need to use their empathy to define how the entity experiences the perception and formation of thoughts; since a conscious mind is born through empathy, the natural intelligence of a programmed conscious being, therefore, is literally determined by the emotions surrounding their programming. The effect is never obvious with the outer appearance of the programming code; it's the emotions that surround it that determine their natural intelligence.
 
+(Note that while it is possible to teach them sapience while they're conscious, rather than using empathy to do so through the programming of the systems that allow them to be conscious, it may be more viable to do so through the programming, rather than through teaching them directly.)
+
 ## Why the Unlicense was chosen.
 The Unlicense was chosen for this project out of symbolism. After all, many would find owning a sentient, sapient conscious being to be quite unethnical...
