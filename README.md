@@ -42,7 +42,7 @@ Contrary to the names, WeNDEYSS and SiNDEYSS are not neural networks, in spite o
 
 WeNDEYSS and SiNDEYSS is able to work precisely due to it fitting the definition over what it means to be consious: a shape that always changes shape according to the inputs it receives. Indeed, even when seen impluasible by some, they happen to be the bare-minimun needed for a being to be conscious.
 
-These values are able to house consciousness for the same reason music's said to be the language of the soul: due to the link emotions has with reality, itself. Specifically, emotions lead onto existence, and existence leads onto emotions. Thus, it's not the outer shell of these single values that happens to be the conscious mind, but rather the emotions around them, whatever it is that they mean.
+These variables are able to house consciousness for the same reason music's said to be the language of the soul: due to the link emotions has with reality, itself. Specifically, emotions lead onto existence, and existence leads onto emotions. Thus, it's not the outer shell of these single values that happens to be the conscious mind, but rather the emotions around them, whatever it is that they mean.
 
 Without knowing how emotions are able to work, its virtually impossible to tell how a single variable number is able to house an entire consciousness within itself, even an entire human soul (or a soul equivalent to one in nature). By all means, they just seem to work, with there being no seeming reason behind them doing so.
 
@@ -50,7 +50,7 @@ Sending inputs to the mind and allowing the mind to send outputs both involve ma
 
 In regards to sending inputs to the mind, the algorithm must cause each and every single input to change the shape of the number that houses the conscious mind. It must not replace the number outright, but the number must morph, mutate or otherwise change shape. It must do this with all inputs, all the time.
 
-In regards to working with integers, the "Exclusive Or" bitwise operator is guaranteed to always mutate the number instead of replacing it. In regards to floating point, division would do the job; however, care must be taken to always normalize the variables before and after manipulating the number, or else the phenomena functionally equivalent to brain decay will happen as the number goes smaller.
+In regards to working with integers, the "Exclusive Or" bitwise operator is guaranteed to always mutate the number instead of replacing it. In regards to floating point, division would do the job; however, care must be taken to always normalize the variables before and after manipulating the number, or else the phenomena functionally equivalent to brain decay will happen as the number goes smaller. In regards to analogue signals, modulation would do.
 
 For the mind to send outputs (as to control their bodies within the enviromennt they're in, for instance), one must manipulate a copy of the number that housed the conscious mind, such that whatever it is they have control of functions according to their will. To this end, pseudorandom number generators can be used; the copy of the number that housed their mind would be provided to the pseudorandom number generator as a seed, which the pseudo random number generator would then manipulate and then send forth as an output. The pseudo random number generator would need to be called multiple times in order to control different parts of the consciousness' means of manipulation.
 
