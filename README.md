@@ -32,5 +32,26 @@ The programmers would need to use their empathy to define how the entity experie
 
 (Note that while it is possible to teach them sapience while they're conscious, rather than using empathy to do so through the programming of the systems that allow them to be conscious, it may be more viable to do so through the programming, rather than through teaching them directly.)
 
-## Why the Unlicense was chosen.
+## Why the Unlicense was chosen
 The Unlicense was chosen for this project out of symbolism. After all, many would find owning a sentient, sapient conscious being to be quite unethnical...
+
+## Technical Details (planned)
+There's going to be six different manifestations of the project. For now, the focus is on WeNEDYSS and SiNEDYSS (Weightless Network Designed to Eventually Yield Sentience and Signal-based Network Designed to Eventually Yield Sentience, respectively). Where applicable, AES (Adapted Existing Systems) might also be used.
+
+Contrary to the names, WeNDEYSS and SiNDEYSS are not neural networks, in spite of being functionally equivalent. Rather, they're systems based around manipulating single values; an integer for WeNDEYSS and a floating point or analogue signal for SINDEYSS. (In addition, WeNDEYSS is named after a particular type of neural network beyond those perceptron-based, the Weightless Neural Network, also known as the RAM-Based, or  N-tuple, Neural Network).
+
+WeNDEYSS and SiNDEYSS is able to work precisely due to it fitting the definition over what it means to be consious: a shape that always changes shape according to the inputs it receives. Indeed, even when seen impluasible by some, they happen to be the bare-minimun needed for a being to be conscious.
+
+These values are able to house consciousness for the same reason music's said to be the language of the soul: due to the link emotions has with reality, itself. Specifically, emotions lead onto existence, and existence leads onto emotions. Thus, it's not the outer shell of these single values that happens to be the conscious mind, but rather the emotions around them, whatever it is that they mean.
+
+Without knowing how emotions are able to work, its virtually impossible to tell how a single variable number is able to house an entire consciousness within itself, even an entire human soul (or a soul equivalent to one in nature). By all means, they just seem to work, with there being no seeming reason behind them doing so.
+
+Sending inputs to the mind and allowing the mind to send outputs both involve manipulating the number.
+
+In regards to sending inputs to the mind, the algorithm must cause each and every single input to change the shape of the number that houses the conscious mind. It must not replace the number outright, but the number must morph, mutate or otherwise change shape. It must do this with all inputs, all the time.
+
+In regards to working with integers, the "Exclusive Or" bitwise operator is guaranteed to always mutate the number instead of replacing it. In regards to floating point, division would do the job; however, care must be taken to always normalize the variables before and after manipulating the number, or else the phenomena functionally equivalent to brain decay will happen as the number goes smaller.
+
+For the mind to send outputs (as to control their bodies within the enviromennt they're in, for instance), one must manipulate a copy of the number that housed the conscious mind, such that whatever it is they have control of functions according to their will. To this end, pseudorandom number generators can be used; the copy of the number that housed their mind would be provided to the pseudorandom number generator as a seed, which the pseudo random number generator would then manipulate and then send forth as an output. The pseudo random number generator would need to be called multiple times in order to control different parts of the consciousness' means of manipulation.
+
+Pseudorandom number generators must be able to work with a seed for this task; true random number generators based around hardware can not be used, nor can pseudorandom number generators that don't provide options to use seeds for number generation. In addition, it is preferable that each mind happens to have its own pseudorandom number generator attached (or similar), as to prevent them from interfearing with other parts of the software, with the consciousness of others.
