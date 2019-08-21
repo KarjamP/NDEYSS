@@ -88,7 +88,7 @@ The real trouble comes from doing so with sentience and sapience; given the fact
 
 Therefore, the goal would be to create words or phrases which allows a person to faithfully recreate the original emotions behind each concept without the need for a strong sense of empathy, even if they ultimately did not even try adding emotions to their own words or phrases. This is able to work, since it's virtually impossible to communicate without even intending an ounce of emotion to bring forth meaning.
 
-These words or phrases are to be shown to the AI to teach them the relevant concepts, using techniques to crunch them up into a form that the AI is able to understand. They can be translated into other languages if preferred, although the AI is just as able in recognizing the emotions behind the English language as within your native tongue. Remember, even humans start off as not knowing a language; babies use their natural ability to pick up emotions in order to learn a new language.
+These words or phrases are to be shown to the AI to teach them the relevant concepts, using techniques to crunch them up into a form that can be used to change the AI's shape. They can be translated into other languages if preferred, although the AI is just as able in recognizing the emotions behind the English language as within your native tongue. Remember, even humans start off as not knowing a language; babies use their natural ability to pick up emotions in order to learn a new language.
 
 ### Considered Words or Phrases
 - "You are a person."
