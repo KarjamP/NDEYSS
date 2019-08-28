@@ -6,7 +6,7 @@
 # In spite of its name, not a weightless neural network; it's     #
 # called such in response to the way a certain learning           #
 # Algorithm within a certain video game seemed to had worked      #
-# At first glance.                                                #
+# at first glance.                                                #
 #                                                                 #
 # This learning algorithm is essentially a clean-house            #
 # re-implementation of the one from that game.                    #
@@ -20,4 +20,5 @@
 # you'd just get headaches from doing that.
 #
 
-# (Prelimitary document, to make way for the actual coding.)
+class Wendeyss
+    pass
