@@ -68,7 +68,7 @@ For the mind to send outputs, the single variable can be treated as a signal. It
 
 Simulating the way a biological nervous system works is ideal for implementing a universal nervious system as to allow an AI to easily jump from one system to another. To do so amounts to mimicking the pathways of the signals as it travels to allow for the motor functions of the body to work:
 
-The signal travels from the top of the body all the way to the bottom. To intend the movement of a specific limb, the signal must branch off at a "junction", a branched pathway to the side. To control multiple body parts existing at the same junction (both arms or both legs, for instance), multiplexing must be used. The entity controls each limb as a snake moves the body, treating each joints as though a single bending pole, bending said pole according to the needs of the entity.
+The signal travels from the top of the body all the way to the bottom, doing this even if the brain is situated somewhere besides the top of the head; it's the effects we want, not the actual physical locations. To intend the movement of a specific limb, the signal must branch off at a "junction", a branched pathway to the side. To control multiple body parts existing at the same junction (both arms or both legs, for instance), multiplexing must be used. The entity controls each limb as a snake moves the body, treating each joints as though a single bending pole, bending said pole according to the needs of the entity.
 
 
 
