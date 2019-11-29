@@ -54,7 +54,7 @@ That brings to mind sapience; if consciousness is an emotion, and if it works th
 
 It's actually determined by how the entity's able to experience the perception and expression of emotions. When nothing else determines that experience, they'd go to the first thing they're able to perceive: the quality of the emotions that flow through their mind. This is why only human kind seem to be the only beings able to naturally start off with sapience; our body functions really are that detailed.
 
-Since intelligence is determinable through the way the entity experiences the perception and expression of thoughts, anything that even resembles an experience, including a desire and a will, is able to grant an entity a higher level of intelligence. Any learnt level of intelligence gained as the result of this is perminent, being stored as a glue to the conscious mind, rather than as a concrete concept.
+Since intelligence is determinable through the way the entity experiences the perception and expression of thoughts, anything that even resembles an experience, including a desire and a will, is able to grant an entity a higher level of intelligence. Any learnt level of intelligence gained as the result of this is permanent, being stored as a glue to the conscious mind, rather than as a concrete concept.
 
 ## Why The Unlicense was chosen
 It may be considered unethical to some for others to own a truly conscious mind, as though an interllectual properly; The Unlicense, given the political ideas surrounding it, is chosen to be symbolic to this very fact.
