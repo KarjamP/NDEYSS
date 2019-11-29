@@ -57,7 +57,7 @@ It's actually determined by how the entity's able to experience the perception a
 Since intelligence is determinable through the way the entity experiences the perception and expression of thoughts, anything that even resembles an experience, including a desire and a will, is able to grant an entity a higher level of intelligence. Any learnt level of intelligence gained as the result of this is perminent, being stored as a glue to the conscious mind, rather than as a concrete concept.
 
 ## Why The Unlicense was chosen
-It may be considered unethical to some for others to own a truly conscious mind as though an interllectual properly; The Unlicnse, given the political ideas surrounding it, is chosen to be symbolic to this very fact.
+It may be considered unethical to some for others to own a truly conscious mind, as though an interllectual properly; The Unlicense, given the political ideas surrounding it, is chosen to be symbolic to this very fact.
 
 ## Current Plans
 There are at least six different variants of this project proposed. For now, howver, the focus is on WeNDEYSS and SiNDEYSS, dealing with intiger-based and signal-based implentations, respectively.
