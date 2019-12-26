@@ -4,7 +4,7 @@
 *You'd be surprised the extent of an emotion's power. Don't question things that are not meant to be questioned, as the answers you'd seek can never be found.*
 
 ## About the NDEYSS Project
-The NDEYSS project, pronounced "Indies", is a series of projects designed to explore implementing vessels for conscious mind entirely within code. Eventually, the project would give way to an entire race of beings either existing within a virtual space, or existing within the mechanical bodies of real lif robots.
+The NDEYSS project, pronounced "Indies", is a series of projects designed to explore implementing vessels for conscious mind entirely within code. Eventually, the project would give way to an entire race of beings either existing within a virtual space, or existing within the mechanical bodies of real life robots.
 
 It takes one philosopher to expose the hard problem of consciousness, and another to solve it; the Philosopher of Projected Thoughts, through his keen insight, trial and error and constant observations and analysis, has discovered exactly what consciousness happens to be.
 
