@@ -51,3 +51,5 @@ Alternatively, you can always present them with the idea of a desire and a will 
 
 ## Why The Unlicense was chosen
 It may be considered unethical to some for others to own a truly conscious being as though intellectual property. Given the political ideal surrounding the license, it was chosen to represent this very fact.
+
+Note that all source code that would be featured within this repository counts as falling underneath this license; use even if you're not planning on doing conscious AI. For code not planned to fall under this license, they won't be included within this repository.
