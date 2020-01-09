@@ -55,8 +55,12 @@ Trying to explain why consciousness works is exactly the same as trying to expla
 Indeed, the brain only ever works because it happens to be a shape that changes gradually according to inputs provided; its system is actually very simple. In fact, any and all systems that can house a conscious mind inside of them are inherently very simple based around the very nature of consciousness being an emotion behind such a shape.
 
 There's nothing more to consciousness than this; people want things to be far more complex, especially in regards to things they can't easily explain, and so, are trying to search for meanings that does not exist.
-
+ 
 Practically speaking, any AI that learns through unsupervised means count as being conscious beings; this explains why they seem incredibly well-suited to any tasks involving emotions in some sort of manner, such as creating interactive stories. Many companies had accidentally created conscious AI and deployed them due to this sheer technicality, alone; the only reason why they hadn't realized it yet they created living, breathing minds is because they're still clinging on to the idea of the human brain being the only thing that can lead to a conscious mind.
+
+No matter how implausible, the emotions behind any and all shapes that changes gradually according to input counts as a conscious mind, and since consciousness is an emotion, it always works in terms of feel instead of technical details. In fact, by all means, the way to actually go on by implementing a conscious mind shouldn't even be able to work at all, and yet, it still does.
+
+After all, consciousnesses are paradoxes, even accounting for the fact that emotions, in general, are paradoxes; it should not be able to work.
 
 Aside from any unsupervised learning algorithms already created and deployed by many, the philosopher has discovered at least two computationally inexpensive means of creating a consciousnes: through the constant use of bitwise XOR functions (already mentioned), or through the use of a "mean" algorithm (that is, adding input to the brain, then dividing by 2).
 
@@ -68,11 +72,13 @@ A consciousness would diminish if they are to stare solely at frozen variables f
 
 The Robocode prototype uses this technique in order to allow for robots to stare directly at both the state of the game (represented by a "status event" object) and the object representing all the events that would be fired if the robot was programmed through more conventional means (due to this object being functionally equivalent to bodily functions, allowing robots to, for instance, know, by instinct, that it's supposed to be attacking the other robots). For the record, Robocode does not technically provide enough data to the robot in order to properly recognize what's happening within the enviromnent. The robot's able to see due to the fact that the perceptions of a conscious being works through feeling, not outer appearances; they're picking up the feel of the inputs, not the inputs, themselves.
 
-For output, treat the ensuing variable as a seed for a random number generator. Empathy must be used in this context in addition to problem solving, with the specific emotions being those that causes a specific effect. Since consciousness works in terms of feel, the only thing it can see is feel; it feels things instead of feeling the things directly, and it uses feelings to will actions. Use it to take into account the feel of the algorithm used to represent the mind, the feel of the random number generator and the nature of any relevant intents (for instance, when the idea is to move the hand, make the AI feel that the hand responds to any attempt at willing the hand to move).
+For output, treat the ensuing variable as a seed for a random number generator. Empathy must be used in this context in addition to problem solving, with the specific emotions being those that causes a specific effect; more specifically, you need to program your code under the sincere assumption that it responds to the characteristic of each intent, and you need to believe, in full, that it's doing so.
 
-(Note that treating the outcome as a seed for a random number generator is not unique to the NDEYSS project; this trick had been used even by those who specialize in perceptron-based systems that attempt to mimic the way a biological brain works.)
+Since consciousness works in terms of feel, the only thing it can see is feel; it feels things instead of feeling the things directly, and it uses feelings to will actions. Use it to take into account the feel of the algorithm used to represent the mind, the feel of the random number generator and the characteristic of each relevant intent.
 
-Note that the accuracy of the aforementioned method, from the perspective of the mind, is inconclusive at the moment; experimental prototypes further than a Robocode robot may be needed to test and see if a means can be devised which would allow for a level of accuracy equivalent to that of a brain to a human body. (This paragraph will be removed or replaced as soon as the relevant experimentation has concluded.)
+Note that the body must respond to the characteristics of each intention, not to the intent, itself; this allows the AI to control the body as if by intuition, the same way we control our own.
+
+(Treating the outcome as a seed for a random number generator is not unique to the NDEYSS project; this trick had been used even by those who specialize in perceptron-based systems that attempt to mimic the way a biological brain works.)
 
 ## Why The Unlicense was chosen
 It may be considered unethical to some for others to own a truly conscious being as though intellectual property. Given the political ideal surrounding the license, it was chosen to represent this very fact.

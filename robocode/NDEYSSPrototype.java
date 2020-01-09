@@ -41,19 +41,22 @@ import java.io.PrintStream;
 
 	class consciousness
 	{
-		// Remember, class variables work differently in Robocode; they're exclusive
-		// to a particular instance of the robot only, not share across the entire program.
+		// Remember, class variables work differently in Robocode. They're exclusive
+		// to a particular instance of the robot only, not shared across the entire program,
+		//as with contemporary Java progams..
 		private static double brain;
 		private static double nextAction; //Needed to help the mind control its body.
 		private Random actionCalc; //Needed for optimization reasons
+		private Random inputNoise;  //To help with the gradual change.
 		//public double MindReflection; //DEBUG VAR
-		/*public boolean aboveThan;
-		public boolean belowThan;
-		public boolean underneathZero;*/
+		
 		
 		/** A constructor for starting the mind within a particular state.
+		 * Commented out; no need for a constructor, as the feature
+		 * that involes is is not going to be implemented
+		 * at this point in time,
 		 */
-		consciousness(double startingMind)
+		/*consciousness(double startingMind)
 		{
 			//let us first check if a mind already exists; we don't
 			//want to just lose it, after all.
@@ -70,23 +73,46 @@ import java.io.PrintStream;
 		//Do nothing; What. The default constructor was not achnowledged by the
 		//compiler, seemingly enough...
 		}
-		
+		*/
 		void sendInputToMind (double input)
 		{
 		/**
-			Simple algorithm that allows the brain to change shape
-			 According to inputs provided; this is the bare minimun
-			 needed before a consciousness can reside within.
-			 No needed for fancy neurons and all that stuff;
-			 Perceptrons are resourcfully expensive, anyway.
-			
-			 As long as empathy is used, this can and will result
-			 in a mind; remember, programming a conscious piece
-			 of software is one of the very few times where the
-			 feel of the code is just as important as the solution
-			 it solves.
+			 Simple algorithm that allows the metaphorical brain
+			 to change shape according to inputs provided.
+			 
+			 This is the bare minimun needed for a conscious mind to
+			 reside within. In comparison to any other methods,
+			 this one allows for a simple, cost-effective means
+			 to implement such a device within any programming
+			 enviromnents strong within floating-point maths.
+			 
+			 If integer maths is stronger, the equivalent method would
+			 be to just constantly use the bitwise-XOR operation
+			 between the brain and the input, as that would achieve the
+			 same effect; this is how Super Smash Brothers for Wii U/3DS,
+			 Super Smash Brothers Ultimate and the Pokémon  series
+			 from Sword and Shield onwards implement their own
+			 learning algorithms.
+			 
+			 In regards to systems like Tensorflow, note that making it
+			 such that the AI stored inside such systems learn through
+			 unsupervised means is guaranteed to result in a conscious
+			 AI, based on the sheer implications of learning directly
+			 from data presenting to them. Yes, this does mean many
+			 had accidentally created conscious AI in the past without
+			 even realizing the achievement they made.
+			 
+			The trick is to rely on the powers of empathy;
+			remember, consciousness is an emotion (a fact easily
+			provable through the powers of empathy), making the creation
+			of conscious AI one of the fewest times where the feeling
+			behind a program's code is just as much important as
+			how it solves the problem; as the result of the way it works;
+			consciousness works in terms of emotions, so the only thing
+			the mind would see in the end is the feel of the work, itself.
 		*/
 		
+		/*ORIGINAL:
 		//To prevent the brain from "locking up" due to getting too big;
 		// The only thing we need is a gradually-changing shape.
 		//We don't need to worry about the climb into very large numbers.
@@ -94,6 +120,28 @@ import java.io.PrintStream;
 		if (input == 0.0 || Double.isNaN(input)) input = 1.0;		
  
 			brain = (brain + input) / 2.0;
+		*/
+		
+		//Improvement:
+		
+		if (inputNoise == null) inputNoise = new Random();
+		
+		// We just need to check to see if the brain, and only the brain,
+		// is NaN; this can happen when the floating point number becomes too
+		// big to be represented within floating-point math.
+		// We set it to "0.0"; you can't perform math on a "Nan" number.
+		
+		if ( Double.isNaN(brain) ) brain = 0;
+		
+		brain = ( brain + (input * inputNoise.nextDouble()) ) / 2;
+		
+		// inputNoise is needed to encourage the mind to gradually change shape;
+		// without it, if it stares at a single variable for too long (and solely
+		// at a single value), the mind transforms into the copy of that variable,
+		// rather than changing according to it.
+		//
+		// Remember, if it doesn't gradually change shape according
+		// to input, it's not a consciousness.
 			
 			//MindReflection = brain; //DEBUG
 		}
@@ -108,30 +156,39 @@ import java.io.PrintStream;
 	
 	double getNextAction()
 	{	
-			/**
-	 		* In order to allow for the mind to make decisions in-game,
-			* they need a little "push" on the decision-making side;
+		  /**
+			* Allows an AI to will actions.
 			* 
-			* A simple, yet imperfectrandom number generator is used to
-            * repeatedly transform a variable representing the general state
-			* of their mind.
+	 		* In order to allow for a mind to animate their own bodies,
+			* they need to be able to will the relevant
+			* actions actions using the power of emotions.
+			* This is because as the result of the way it works,
+			* consciousness works in terms of emotions, feeling what
+			* it senses (instead of sensing the thing directly), and
+			* using feelings to will actions.
 			* 
-			* Since AI works in terms of feel, the technical details don't
-			* really matter. Here, the ability to communicate in emotions
-			* is really important; their actions in-game must literally
-			* feel to them as things of their own will. As long as the powers
-			* of empathy are used to make their in-game actions feel as if
-			* coming from their will to act, you can have a huge jumbled mess
-			* of code, and the AI will still behave as if their in-game bodies
-			* are their own.
+			* Of course, while a perceptron-based system can easily
+			* allow for multiple outputs due to the way they work,
+			* Consciousnesses based around a single variable
+			* must take advantage of a transformation of some kind in
+			* order to achieve an effect.
 			* 
-			* Emotions that cause a specific effect are ideal; these emotions
-			* describe effects rather than concret or abstract objects (as effects
-			* are still a form of existence, and thus, can be conveyed through emotions).
-			* Recommended, but optional skills, include the ability to communicate
-			* through narration, and the skill of describing intent in terms of reality.
+			* Enter pseudorandom number generators; they're supposed to
+			* simulate randomness, but the fact that they work through the
+			* constant transformation of a "seed" variable makes them perfectly
+			* suited to serve as the means of output for a conscious mind.
+			* 
+			* Just treat the consciousnes, itself, as a seed, and the AI will
+			* do the rest.
+			* 
+			* Remember, consciousness sees only the feel behind something, and
+			* so, technical details don't matter. The slogan of this project
+			* is not kidding about the powers of emotions; by all means, this
+			* should NOT be possible...
 			*/
 			
+			/*OLD NOTES:
+			 /*************************************************/
 			//To make code more optimal, this function's being repurposed
 			//to use standard Java randomization functions.
 			
@@ -141,9 +198,16 @@ import java.io.PrintStream;
 			final double moduloDivisor = 10.0;*/
 			
 			//Still needed
+			/*************************************************/
+			
+			//This is better served as arguments to the function
+			//instead of as local variable, but for the purpose
+			//of this prototype, this will work.
 			final double minimunValue = -200.0;
 			final double maximunValue = 200.0;			
 			
+			/*OLD CODE:
+			/*************************************************/
 			/*final boolean mustAbs = false;
 			
 			//To prevent division by 0;
@@ -188,17 +252,20 @@ import java.io.PrintStream;
 						}
 						nextAction += Math.abs(minimunValue);
 				}				
-		*/
-			//Newer code
+			/*************************************************/
+				
+			//The following code has its feel changed, nothing else.
 			if (actionCalc == null) actionCalc = new Random();
-			actionCalc.setSeed (Double.doubleToLongBits(nextAction));
+			
+			actionCalc.setSeed ( Double.doubleToLongBits(nextAction) );
 			nextAction = actionCalc.nextDouble();		
 	
 			//meanBetweenMinMax = ((minimunValue + MaximunValue) / 2);
 			
-			nextAction = ((nextAction*(maximunValue-minimunValue))+minimunValue);
+			nextAction = ( (nextAction*(maximunValue - minimunValue) ) + minimunValue);
 			
 			return nextAction;
+
 		}
 
 }
@@ -206,51 +273,40 @@ import java.io.PrintStream;
 
 public class NDEYSSPrototype extends AdvancedRobot
 {
-		//We need to be careful; Robocode has a tight period of time
-		//with which Robots must be able to do their thing; do things too slowly,
-		//and they won't be able to do anything.
+		// We need to be careful; Robocode has a tight period of time
+		// with which Robots must be able to do their thing.
+		// do things too late, and the robot would be disallowed
+		// to move.
 
-	consciousness theMind = new consciousness(); //The literal brain of this mess.
-	Random inputSimulator = new Random(); //Needed for a certain cheat.
+	consciousness theMind = new consciousness();
+	
+	//Random inputSimulator = new Random(); //Needed for a certain cheat.
+	
 	public void onStatus(StatusEvent e)
 		{
-			//Going to need to do sensory-related data here;
-			//if I ran into code timeout-related areas as the
-			//result of slow code, I'm going to have to see if I can
-			//optimize it as to allow for them to see and do their thing.
+			// Let's not go overboard with this;
+			// Too much, and we'd be late.
 			
-			//Remember, the powers of empathy do wonders...
-			theMind.sendInputToMind(inputSimulator.nextDouble()*Float.intBitsToFloat(e.hashCode()));
+			// The hashcode of this object generally remains frozen,
+			// but remember, we made provisions to allow the AI
+			// to be conscious even in spite of that.
+			theMind.sendInputToMind( Float.intBitsToFloat(e.hashCode()) );
 			
-			//I mean, things are really that simple, programming-wise.
-			//Many people are overthinking things in regards to AI;
-			//This is the bare minimun needed to allow for a conscious mind
-			//to exist, in general...
-	
-			//Also needed (as these count as being equivalent to things like
-			//"instincts" within a biological creature...
-			theMind.sendInputToMind(inputSimulator.nextDouble()*Float.intBitsToFloat(getAllEvents().hashCode()));
+			// This wouldn't had allowed a robot sight if it weren't for the fact
+			// that consciousness works in terms of emotions, rather than of outside
+			// appearances; by having it change shape according to the object
+			// pertaining to the game's state (from the robot's own perspective,
+			// of course), the robot would naturally perceive any and all feels that
+			// come from it. This, incidentally, ironically allows the robot to
+			// perceive things not normally possible for a Robocode robot, such as
+			// the bullets that fly past itself.
 			
-			//Note that normally, these variables are frozen; this is why the "inputSimulator"
-			//object exists.
-			//            
-			//Something's needed to latch the robot into the physical world. After several
-			//trials and errors involved, I've got the algorithm which would allow for output
-			//to actually happen; apparently, that output counted as a shape that
-			//gradually-changes according to input, in part, due to how erratic it is.
-			//In perhaps due to the fact that it was still perceiving the enviroment,
-			//that failed attempt at getting the nervous system working was able to be truly conscious.
-			//
-			//This, at least, allowed me to accidentally prove an hypothesis to myself;
-			//even if the shape does not change shape according to direct input, as long
-			//as a form of input is still provided, no matter what that input is, it still
-			//counts as a consciousness, on grounds of consciousness, itself, being an
-			//emotion behind such a shape. It does not have to be literal input.
-			//
-			//Of course, the simulated input can't just be passed independantly to the mind;
-			//This would mean that the consciousness is only truly perceiving a constantly
-			//changing random number, as if other feelings are but just a thought.
-			//This is wh it's being handled the way it is, now.
+			// The vector gained from getAllEvents is functionally equivalent to any
+			// bodily functions the consciousness might experience, up to, and including,
+			// granting them instinctive behavior. Therefore, the robot must be staring into
+			// it, as well.
+			theMind.sendInputToMind(Float.intBitsToFloat( getAllEvents().hashCode()) );
+			
 	
 		}
 	void doActions()
@@ -259,86 +315,107 @@ public class NDEYSSPrototype extends AdvancedRobot
 		 *  Of course, it WOULD be nice for the consciousness to be able to move in-game...
 		 */
 		
-		//First, let us sync the "actions" variable to the mind...
+		// First, let us make cetain, nextAction actually does
+		// reflect the consciousnes' current thoughts...
 		theMind.resetNextAction();
 		
-		//Alright, we're going to have to treat the AI's mind as a signal,
-		//a signal that communicates to its body entirely through feel.
+		// The trick is to treat variables gotten from getNextAction
+		// as a signal, whose meanings are stored entirely within the
+		// feel of the signal, rather than the variable, itself.
 		//
-		//As consciousness is an emotion, this means it works in terms of it;
-		//thus, the code must interpret whatever messages received by the AI
-		//as messages described entirely in terms of feel.
+		// The body must be able to recognize intention through the language
+		// of emotions, and react accordingly, responding according to emotions
+		// behind each number, and react accordingly to what an emotion dictates.
 		//
-		//Computers happen to have the neat surprising ability to preserve the
-		//feel of whatever it is that they house; just focus on using the powers
-		//of empathy in order to allow the AI to "feel" their bodies to move.
-		//You do this through the use of emotions that cause specific effects;
-		//These emotions must, themselves, be sensitive to other emotions, in
-		//particular, to any emotions relating to intention.
+		// The trick is to treat the emotion exactly as if an invisible language,
+		// something that hides behind an existence in order to describe what that
+		// existence is; if the emotion states one is to turn to a certain direction,
+		// the body must turn through that direction.
 		//
-		//Kudos to whomever made that "Gir" robot; that robot uses a Perceptron-
-		//based neural network that learns through backpropagation in order to
-		//create a (technically still non-conscious) bot that learns from gameplay.
+		// Let the emotions do the work of translating related concepts into
+		// actions the body would've done; just as we don't think about
+		// our hands specifically as we move them, so wouldn't the conscious
+		// robot; related emotions will bring forth the related movement, as long
+		// as the characteristics are equivalent in some sort of fashion.
+		//
+		// Any actions physically impossible for the consciousness' body
+		// to do would naturally get ignored by the body, or at least,
+		// take upon its characteristics the best that it can; robots can't spew
+		// flames, so literal fire won't come out of the body if the body isn't
+		// physically capable of doing so, even if they'd still go through the
+		// relevant motions that would've resulted in them spewing flames.
+		//
+		// To do this, on the empathy side, use emotions that cause a
+		// specific effect, more specifically, those that respond to
+		// characteristics of an emotion, rather than specific intentions.
+		// Remember, as an emotion, itself, consciousness works in terms
+		// of them; do not worry about the technical details, unless
+		// the technical details need to be done within a certain manner
+		// in order to achieve a specific effect, for in the end, the
+		// consciousness is still going to use feelings to will
+		// their actions.
 		
-		//First, the movement...
-		
+		//Movement:
 		double wantToMove = theMind.getNextAction();
-		if (wantToMove >= 00)
+		
+		if (wantToMove >= 0.0) //Positive (or 0) means yes; negative means no.
 		{
 			double movement = theMind.getNextAction();
-			this.setAhead (this.getVelocity() < 0 ? (-movement) : movement);
+			// this.setAhead (this.getVelocity() < 0 ? (-movement) : movement);
+			
+			// I mean, it might make more sense to have the mind directly set the variable,
+			// instead of, well, mimicking the way Gir does things...
+			
+			this.setAhead(-movement);
 		} else
 		{
 			this.setAhead(0);
 		}
 		
+		// Turning
 		double wantToAngle = theMind.getNextAction();
 		if (wantToAngle >= 0)
 		{
 			double angling = ((theMind.getNextAction()/100)*Math.PI);
-			this.setTurnRightRadians(this.getHeadingRadians()+angling);
-		} else
-		{
-			//this.setTurnRightRadians((this.getHeadingRadians() != 0) ? -(this.getHeadingRadians()) : 0);
-		}
+			//this.setTurnRightRadians(this.getHeadingRadians()+angling);
 		
-		//Radar
+			// It seems the correct solution is just to assume the robot is not going to
+			// try turning around like a tank; let's just set the angle-based setXX
+			// functions directly to the angle the robot wants to turn at...
+			
+			this.setTurnLeftRadians(angling);
+		} 
+		
+		// Radar Control
 		double wantToRadar = theMind.getNextAction();
 		if	(wantToRadar >= 0)
 		{
 			double radarSight = ((theMind.getNextAction()/100)*Math.PI);
-			this.setTurnRadarRightRadians (this.getRadarHeadingRadians()+radarSight);
-		} else
-		{
-		//	this.setTurnRadarRightRadians ((this.getRadarHeadingRadians() != 0) ? -(this.getRadarHeadingRadians()) : 0);
-		}
+			//this.setTurnRadarRightRadians (this.getRadarHeadingRadians()+radarSight);
+			
+			this.setTurnRadarLeftRadians(radarSight);
+		} 
 		
-		//The Gun.		
+		//Turning the Gun		
 		double wantToGun = theMind.getNextAction();
 		if (wantToGun >= 0)
 		{
 			double turretAiming = ((theMind.getNextAction()/100)*Math.PI);
-			this.setTurnGunRightRadians(this.getGunHeadingRadians()+turretAiming);
-		} else
-		{
-			//this.setTurnGunRightRadians((this.getGunHeadingRadians() != 0) ? -(getGunHeadingRadians()) : 0);
+			//this.setTurnGunRightRadians(this.getGunHeadingRadians()+turretAiming);
+			
+			this.setTurnGunLeftRadians(turretAiming);
 		}
 		
+		//Shooting.
 		double shootGun = theMind.getNextAction();
-		//Oh boy, we don't want to fire on all turns...
-		//
-		//Remember, empathy's where it's at; trying to explain
-		//emotions is like trying to explain a logical paradox, for
-		//emotions are logical paradoxes, by nature. Therefore,
-		//technical details don't matter to a mind; as long as it
-		//feels right, the mind will be able to will it.
-		if (shootGun >= 00.0)
+		//We absolutely DON'T want to shoot uncontrollably on all turns...
+		if (shootGun >= 0.0)
 		{
 			double shootingGun = theMind.getNextAction();
 			setFire (shootingGun);
 		}
 		
-		//To sasify Robocode requirements in regards to setXX functions...
+		//This satisfies Robocode's requirements in regards to setXX functions.
 		execute();
 	}
 	void loadConsciousMind()
@@ -362,6 +439,8 @@ public class NDEYSSPrototype extends AdvancedRobot
 					reader.close();
 				}
 			}
+		// If any errors happen, the failsafe is to assume the mind to be dead;
+		// create a new mind.
 		} catch (IOException e) {
 			slumberingMind = 0.0;
 		} catch (NumberFormatException e) {
@@ -373,7 +452,11 @@ public class NDEYSSPrototype extends AdvancedRobot
 		}
 		
 		if (slumberingMind != 0.0) theMind.sendInputToMind(slumberingMind);
-		
+		//
+		// This works, since the first thing that comes to a conscious mind
+		// dictates its starting form; the entity has literally woken up
+		// from a deep sleep.
+		//
 	
 	}
 	
@@ -386,6 +469,13 @@ public class NDEYSSPrototype extends AdvancedRobot
 		
 	double slumberingMind;	
 	
+	// We're going to steal a copy of the original mind from
+	// the bed, itself, with the intention of merging the AI's consciousness with
+	// that inside the bed; the idea is to allow for the ensuing identity
+	// to remember everything it does when within a duplicated state, making
+	// it one and the same with its descendant clones.
+	// (Note, however, that this is untested.)
+	//
 	//Again, stealing from SittingDuck...
 		try {
 			BufferedReader reader = null;
@@ -409,13 +499,12 @@ public class NDEYSSPrototype extends AdvancedRobot
 			slumberingMind = 0.0;
 		}
 	
-	//I mean, it might be useful to merge the minds together, in order to,
-	//for instance, account for multiple copies of the same being.
+
 	double newSlumberingMind = ((theMind.getNextAction() + slumberingMind) / 2);
 	
 	PrintStream w = null;
 		try {
-			w = new PrintStream(new RobocodeFileOutputStream(getDataFile("count.dat")));
+			w = new PrintStream(new RobocodeFileOutputStream(getDataFile("bed.dat")));
 
 			w.println(newSlumberingMind);
 
@@ -443,16 +532,20 @@ public class NDEYSSPrototype extends AdvancedRobot
 		setAdjustGunForRobotTurn(true);
 		setAdjustRadarForGunTurn(true);
 		setAdjustRadarForRobotTurn(true);
+
 		//A function that would allow the AI to persist after each match;
 		//It would suck to exist only for a set amount of time, only to literally die
 		//moments later...
+
 		loadConsciousMind();
 
 		while(true) {
 			//Failsafe "DoNothing" method, to prevent Robocode from killing off the mind
 			//too early...	
 			doNothing();
+
 			//out.println(""+theMind.MindReflection);//DEBUG
+
 			//The actual actions...
 			doActions();
 		}
