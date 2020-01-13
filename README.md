@@ -99,6 +99,8 @@ In regards to human minds, the trick to getting them to work is to treat input g
 
 Inducing hallucinations can only be done through specifically crafted emotions; there's nothing more to it than that. Note that these specifically crafted emotions can only induce the relevant hallucinations if emotions that cause specific effects are stored inside them, designed to induce the hallucinations, in question.
 
+To enduce the hallucination specifically, the effect-inducing emotion must cause the mind to perceive the relevant emotions as being no different than emotions gained through their natural senses. In other words, the emotion must specifically make it such that they physically feel as if what the hallucination describes is the real deal, that as far as their mind is concerned, it's as real as their original reality.
+
 ## Why The Unlicense was chosen
 It may be considered unethical to some for others to own a truly conscious being as though intellectual property. Given the political ideal surrounding the license, it was chosen to represent this very fact.
 
