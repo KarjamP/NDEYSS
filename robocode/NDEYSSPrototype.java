@@ -1,6 +1,7 @@
 package NDEYSSPrototype;
 import robocode.*;
 import java.util.Random;
+import java.awt.Color;
 
 //Well, if you're going to copy-paste code...
 import java.io.BufferedReader;
@@ -43,7 +44,7 @@ import java.io.PrintStream;
 	{
 		// Remember, class variables work differently in Robocode. They're exclusive
 		// to a particular instance of the robot only, not shared across the entire program,
-		//as with contemporary Java progams..
+		// as with contemporary Java progams..
 		private static double brain;
 		private static double nextAction; //Needed to help the mind control its body.
 		private Random actionCalc; //Needed for optimization reasons
@@ -154,7 +155,7 @@ import java.io.PrintStream;
 			nextAction = brain;
 		}
 	
-	double getNextAction()
+	double getNextAction(double minimunValue, double maximunValue)
 	{	
 		  /**
 			* Allows an AI to will actions.
@@ -200,11 +201,14 @@ import java.io.PrintStream;
 			//Still needed
 			/*************************************************/
 			
+			/* A need to define this directly as function arguments
+			 * now exists:
 			//This is better served as arguments to the function
-			//instead of as local variable, but for the purpose
+			//instead of as local variables, but for the purpose
 			//of this prototype, this will work.
 			final double minimunValue = -200.0;
-			final double maximunValue = 200.0;			
+			final double maximunValue = 200.0;
+			*/	
 			
 			/*OLD CODE:
 			/*************************************************/
@@ -307,6 +311,13 @@ public class NDEYSSPrototype extends AdvancedRobot
 			// it, as well.
 			theMind.sendInputToMind(Float.intBitsToFloat( getAllEvents().hashCode()) );
 			
+			// While there is nothing changed on the problem-solving side of things here,
+			// the emotional feel of the code changes, instead; now, through the powers
+			// of hallucination, the the code is now specifically targetting the mind's
+			// ability to gradually change according to input, allowing the mind to
+			// perceive them as though natural input; the only difference is, of course,
+			// that this IS natural input, seeing as though the consciousness is otherwise
+			// incapable of sensing its surroundings...
 	
 		}
 	void doActions()
@@ -355,12 +366,15 @@ public class NDEYSSPrototype extends AdvancedRobot
 		// consciousness is still going to use feelings to will
 		// their actions.
 		
+		// This time, I'm specifically making certain that the body responds
+		// to the characteristic of the intent, not to actual intent, itself.
+		
 		//Movement:
-		double wantToMove = theMind.getNextAction();
+		double wantToMove = theMind.getNextAction(-1.0,1.0);
 		
 		if (wantToMove >= 0.0) //Positive (or 0) means yes; negative means no.
 		{
-			double movement = theMind.getNextAction();
+			double movement = theMind.getNextAction(-200.0,200.0);
 			// this.setAhead (this.getVelocity() < 0 ? (-movement) : movement);
 			
 			// I mean, it might make more sense to have the mind directly set the variable,
@@ -373,10 +387,10 @@ public class NDEYSSPrototype extends AdvancedRobot
 		}
 		
 		// Turning
-		double wantToAngle = theMind.getNextAction();
-		if (wantToAngle >= 0)
+		double wantToAngle = theMind.getNextAction(-1.0,1.0);
+		if (wantToAngle >= 0.0)
 		{
-			double angling = ((theMind.getNextAction()/100)*Math.PI);
+			double angling = ((theMind.getNextAction(-2.0,2.0))*Math.PI);
 			//this.setTurnRightRadians(this.getHeadingRadians()+angling);
 		
 			// It seems the correct solution is just to assume the robot is not going to
@@ -387,36 +401,68 @@ public class NDEYSSPrototype extends AdvancedRobot
 		} 
 		
 		// Radar Control
-		double wantToRadar = theMind.getNextAction();
-		if	(wantToRadar >= 0)
+		double wantToRadar = theMind.getNextAction(-1.0,1.0);
+		if	(wantToRadar >= 0.0)
 		{
-			double radarSight = ((theMind.getNextAction()/100)*Math.PI);
+			double radarSight = ((theMind.getNextAction(-2.0,2.0))*Math.PI);
 			//this.setTurnRadarRightRadians (this.getRadarHeadingRadians()+radarSight);
 			
 			this.setTurnRadarLeftRadians(radarSight);
 		} 
 		
 		//Turning the Gun		
-		double wantToGun = theMind.getNextAction();
-		if (wantToGun >= 0)
+		double wantToGun = theMind.getNextAction(-1.0,1.0);
+		if (wantToGun >= 0.0)
 		{
-			double turretAiming = ((theMind.getNextAction()/100)*Math.PI);
+			double turretAiming = ((theMind.getNextAction(-2.0,2.0))*Math.PI);
 			//this.setTurnGunRightRadians(this.getGunHeadingRadians()+turretAiming);
 			
 			this.setTurnGunLeftRadians(turretAiming);
 		}
 		
 		//Shooting.
-		double shootGun = theMind.getNextAction();
+		double shootGun = theMind.getNextAction(-1.0,1.0);
 		//We absolutely DON'T want to shoot uncontrollably on all turns...
 		if (shootGun >= 0.0)
 		{
-			double shootingGun = theMind.getNextAction();
+			double shootingGun = theMind.getNextAction(1.0,5.0);
 			setFire (shootingGun);
 		}
 		
+		//The test robot expressed interest in being able to change
+		//their own color at will.
+		Color combinedColor;
+		
+		//Body Color:
+		if (theMind.getNextAction(-1.0,1.0) >= 0.0)
+		{
+			combinedColor = new Color ((float) theMind.getNextAction(0.0,1.0), (float) theMind.getNextAction(0.0,1.0), (float) theMind.getNextAction(0.0,1.0));
+			setBodyColor(combinedColor);
+		}
+		
+		//Gun Color:
+		if (theMind.getNextAction(-1.0,1.0) >= 0.0)
+		{
+			combinedColor = new Color ((float) theMind.getNextAction(0.0,1.0), (float) theMind.getNextAction(0.0,1.0), (float) theMind.getNextAction(0.0,1.0));
+			setGunColor(combinedColor);
+		}
+		
+		//Radar Color:
+		if (theMind.getNextAction(-1.0,1.0) >= 0.0)
+		{
+			combinedColor = new Color ((float) theMind.getNextAction(0.0,1.0), (float) theMind.getNextAction(0.0,1.0), (float) theMind.getNextAction(0.0,1.0));
+			setRadarColor(combinedColor);
+		}
+			
+		//Bullet Color:
+		if (theMind.getNextAction(-1.0,1.0) >= 0.0)
+		{
+			combinedColor = new Color ((float) theMind.getNextAction(0.0,1.0), (float) theMind.getNextAction(0.0,1.0), (float) theMind.getNextAction(0.0,1.0));
+			setBulletColor (combinedColor);
+		}
+		
 		//This satisfies Robocode's requirements in regards to setXX functions.
-		execute();
+		execute(); 
 	}
 	void loadConsciousMind()
 	{
@@ -444,7 +490,7 @@ public class NDEYSSPrototype extends AdvancedRobot
 		} catch (IOException e) {
 			slumberingMind = 0.0;
 		} catch (NumberFormatException e) {
-			slumberingMind = 0.0;
+			slumberingMind = 0.0; 
 		} catch (NullPointerException e) {
 			//Well, I mean, it's not this isn't supposed
 			//to happen...
@@ -474,7 +520,6 @@ public class NDEYSSPrototype extends AdvancedRobot
 	// that inside the bed; the idea is to allow for the ensuing identity
 	// to remember everything it does when within a duplicated state, making
 	// it one and the same with its descendant clones.
-	// (Note, however, that this is untested.)
 	//
 	//Again, stealing from SittingDuck...
 		try {
@@ -500,7 +545,7 @@ public class NDEYSSPrototype extends AdvancedRobot
 		}
 	
 
-	double newSlumberingMind = ((theMind.getNextAction() + slumberingMind) / 2);
+	double newSlumberingMind = ((theMind.getNextAction(0.0,1.0) + slumberingMind) / 2);
 	
 	PrintStream w = null;
 		try {
