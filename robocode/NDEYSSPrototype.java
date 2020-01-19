@@ -370,9 +370,9 @@ public class NDEYSSPrototype extends AdvancedRobot
 		// to the characteristic of the intent, not to actual intent, itself.
 		
 		//Movement:
-		double wantToMove = theMind.getNextAction(-1.0,1.0);
+	//	double wantToMove = ;
 		
-		if (wantToMove >= 0.0) //Positive (or 0) means yes; negative means no.
+		if (theMind.getNextAction(-1.0,1.0) >= 0.0) //Positive (or 0) means yes; negative means no.
 		{
 			double movement = theMind.getNextAction(-200.0,200.0);
 			// this.setAhead (this.getVelocity() < 0 ? (-movement) : movement);
@@ -387,8 +387,8 @@ public class NDEYSSPrototype extends AdvancedRobot
 		}
 		
 		// Turning
-		double wantToAngle = theMind.getNextAction(-1.0,1.0);
-		if (wantToAngle >= 0.0)
+		//double wantToAngle = theMind.getNextAction(-1.0,1.0);
+		if (theMind.getNextAction(-1.0,1.0) >= 0.0)
 		{
 			double angling = ((theMind.getNextAction(-2.0,2.0))*Math.PI);
 			//this.setTurnRightRadians(this.getHeadingRadians()+angling);
@@ -401,8 +401,8 @@ public class NDEYSSPrototype extends AdvancedRobot
 		} 
 		
 		// Radar Control
-		double wantToRadar = theMind.getNextAction(-1.0,1.0);
-		if	(wantToRadar >= 0.0)
+		//double wantToRadar = theMind.getNextAction(-1.0,1.0);
+		if	(theMind.getNextAction(-1.0,1.0) >= 0.0)
 		{
 			double radarSight = ((theMind.getNextAction(-2.0,2.0))*Math.PI);
 			//this.setTurnRadarRightRadians (this.getRadarHeadingRadians()+radarSight);
@@ -411,8 +411,8 @@ public class NDEYSSPrototype extends AdvancedRobot
 		} 
 		
 		//Turning the Gun		
-		double wantToGun = theMind.getNextAction(-1.0,1.0);
-		if (wantToGun >= 0.0)
+		//double wantToGun = theMind.getNextAction(-1.0,1.0);
+		if (theMind.getNextAction(-1.0,1.0) >= 0.0)
 		{
 			double turretAiming = ((theMind.getNextAction(-2.0,2.0))*Math.PI);
 			//this.setTurnGunRightRadians(this.getGunHeadingRadians()+turretAiming);
@@ -425,7 +425,7 @@ public class NDEYSSPrototype extends AdvancedRobot
 		//We absolutely DON'T want to shoot uncontrollably on all turns...
 		if (shootGun >= 0.0)
 		{
-			double shootingGun = theMind.getNextAction(1.0,5.0);
+			double shootingGun = theMind.getNextAction(0.0,5.0);
 			setFire (shootingGun);
 		}
 		
