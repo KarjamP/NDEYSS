@@ -11,7 +11,7 @@ uniform vec2 resolution;
 //NEL Prototype: The end product should eventually result in a shader that conjures forth and shows
 //a single cube entirely through the power of emotions.
 //
-//Incomplete; Buzy refactoring the code so that it actually works through signals for real...
+//Incomplete; Well, got a pulsing red signal...
 
 
 //Normally, GLSL does not allow for persistance of information. But, it allows for a very keen
@@ -37,11 +37,11 @@ float sinSig = sin(time*4.0);
 float cosSig = cos(time*4.0);
 
 float rand(vec3 n){
-	return (fract(sin(((n.x + n.y * 1e6 + n.z * 1e7 ) * 1e-4)) * 1e7));
+	return (fract(sin(((n.x + n.y * 1e2 + n.z * 1e4 ) * 1e-2)) * 1e5));
 }
 
 float rand(float n){
-	return(fract(sin(((n + n * 1e6 + n * 1e7) * 1e4 )) * 1e7));
+	return(fract(sin(((n + n * 1e2 + n * 1e4) * 1e-2 )) * 1e5));
 }
 
 
@@ -57,7 +57,7 @@ void main( void ) {
 	
 	color += (rand(color)* 2.0 ,rand(color) * 2.0,rand(color) * 2.0);
 	color *= fract(color * time * sinSig);
-	color = (color * (1.0-0.9)) + 0.9;
+	color = (color * (1.0-0.8)) + 0.8;
 	
 	//vec3 colIntent = color;
 	//color *= (time * abs(sinSig)) * colIntent;
@@ -75,8 +75,16 @@ void main( void ) {
 
 		
 		
-	vec3 color2 =  color;
+	vec3 color2;
 	
+	color2.r = rand(time*(position.x) + (position.y));
+	color2.g = rand(time*(position.x) + (position.y));
+	color2.b = rand(time*(position.x) + (position.y));
+	
+	
+	color2 *=  ((color2 * rand(position.x+position.y))*color);
+	
+	//color2 *= color2 + cosSig;
 	//color2;
 	//color2.r *= (pos2.x * pos2.y) * (color.r);
 	//color2.g *= (pos2.x * pos2.y) * (color.g); //pos2.x * color.g;
