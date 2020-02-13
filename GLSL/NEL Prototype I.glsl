@@ -11,7 +11,7 @@ uniform vec2 resolution;
 //NEL Prototype: The end product should eventually result in a shader that conjures forth and shows
 //a single cube entirely through the power of emotions.
 //
-//Incomplete; Now starting to look like the Matrix...
+//Incomplete; Box starting to look visible even to the naked eye...
 
 
 //Normally, GLSL does not allow for persistance of information. But, it allows for a very keen
@@ -49,8 +49,11 @@ void main( void ) {
 	vec2 pos = vec2 (sin(position.x*time),sin(position.y*time));
 	vec2 pos2 = vec2 (cos(position.x*time),cos(position.y*time));
 
-	vec3 color = normalize((vec3(5.0,1.0,2.0)) * time); //Anchoring to time makes it conformant to its rules,
-						   //as much as it causes the variable to steadily climb...
+	vec3 color = vec3(5.0,1.0,2.0);
+	
+	color *= (rand(color),rand(color),rand(color));
+	color = normalize(color * time);					//Anchoring to time makes it conformant to its rules,
+						        //as much as it causes the variable to steadily climb...
 	//color.r += sin( position.x * cos( time / 15.0 ) * 80.0 ) + cos( position.y * cos( time / 15.0 ) * 10.0 );
 	//color.g += sin( position.y * sin( time / 10.0 ) * 40.0 ) + cos( position.x * sin( time / 25.0 ) * 40.0 );
 	//color.b += sin( position.x * sin( time / 5.0 ) * 10.0 ) + sin( position.y * sin( time / 35.0 ) * 80.0 );
