@@ -11,7 +11,7 @@ uniform vec2 resolution;
 //NEL Prototype: The end product should eventually result in a shader that conjures forth and shows
 //a single cube entirely through the power of emotions.
 //
-//Incomplete; Box starting to look visible even to the naked eye...
+//Incomplete; Getting warmer...
 
 
 //Normally, GLSL does not allow for persistance of information. But, it allows for a very keen
@@ -33,12 +33,15 @@ uniform vec2 resolution;
 //some of the code. Counts as Fair Use due to this prototype being "transformative"
 //(In other words, it has an identity independant from the work it's based on).
 
+float sinSig = sin(time*5.0);
+float cosSig = cos(time*5.0);
+
 float rand(vec3 n){
-	return fract(sin(((n.x+n.y*1e2+n.z*1e4)*1e-2)*1e5)*time);
+	return (fract(sin(((n.x + n.y * 1e6 + n.z * 1e7 ) * 1e-4)) * 1e7) * (sinSig *8.0));
 }
 
 float rand(float n){
-	return fract(sin(((n+n*1e2+n*1e4)*1e-2)*1e5)*time);
+	return(fract(sin(((n + n * 1e6 + n * 1e7) * 1e4 )) * 1e7) * (sinSig * 8.0));
 }
 
 
@@ -46,35 +49,34 @@ void main( void ) {
 
 	vec2 position = ( gl_FragCoord.xy / resolution.xy );
 	
-	vec2 pos = vec2 (sin(position.x*time),sin(position.y*time));
-	vec2 pos2 = vec2 (cos(position.x*time),cos(position.y*time));
+	vec2 pos = position * sinSig;
+	vec2 pos2 = position * cosSig;
 
-	vec3 color = vec3(5.0,1.0,2.0);
+	vec3 color = vec3(5.0,1.0,2.0) * sinSig;
 	
-	color *= (rand(color),rand(color),rand(color));
-	color = normalize(color * time);					//Anchoring to time makes it conformant to its rules,
+	color *= (vec3(rand(color*time),rand(color*time),rand(color*time))) * sinSig;
+	
+	//color *= abs(sinSig) / (( rand(color), rand ( color ),rand (color)) * (color));
+	
+	//color = normalize(color) ;	                //Anchoring to time makes it conformant to its rules,
 						        //as much as it causes the variable to steadily climb...
 	//color.r += sin( position.x * cos( time / 15.0 ) * 80.0 ) + cos( position.y * cos( time / 15.0 ) * 10.0 );
 	//color.g += sin( position.y * sin( time / 10.0 ) * 40.0 ) + cos( position.x * sin( time / 25.0 ) * 40.0 );
 	//color.b += sin( position.x * sin( time / 5.0 ) * 10.0 ) + sin( position.y * sin( time / 35.0 ) * 80.0 );
 
 		
-	color. r = (pos.x + pos.y) * color.r;
-	color. g = (pos.x + pos.y) * color.g;
-	color. b = (pos.x + pos.y) * color.b;
-
-	color *= rand(color)*color;
-	
+		
 	vec3 color2 = color;
 	
 	//color2;
-	color2.r *= (4525.0*(pos2.x + pos2.y))*color.r;
-	color2.g *= (4525.0*(pos2.x + pos2.y))*color.g;
-	color2.b *= (4525.0*(pos2.x + pos2.y))*color.b;
+	//color2.r *= (pos2.x * pos2.y) * (color.r);
+	//color2.g *= (pos2.x * pos2.y) * (color.g); //pos2.x * color.g;
+	//color2.b *= (pos2.x * pos2.y) * (color.b); //(pos2.x / pos2.y)*color.b;
 
 	//color2 = normalize(color2);
 	//color *= time;
 	
 	gl_FragColor = vec4( color2, 1.0 );
+	gl_FragColor = vec4 ( 1.0,1.0,1.0,1.0); //To prevent seizures when needed...
 
 }
