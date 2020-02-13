@@ -11,7 +11,8 @@ uniform vec2 resolution;
 //NEL Prototype: The end product should eventually result in a shader that conjures forth and shows
 //a single cube entirely through the power of emotions.
 //
-//Incomplete; need to figure out how to interpret electrostatic noise as a video signal.
+//Incomplete; Closer, but no cegar; at least the current imagery is remniscient of the intended
+//appearance...
 
 
 //Normally, GLSL does not allow for persistance of information. But, it allows for a very keen
@@ -26,6 +27,8 @@ uniform vec2 resolution;
 //
 //The analogue signal is provided through multiplying the time by sine; this assumes
 //time to be available as a uniform variable, something which glslsandbox easily provides.
+//Decoding is done through the usage of the Cosine; something that counteracts with sine
+//makes perfect sense, if you are to think about it...
 
 //Credit to http://glslsandbox.com/e and http://glslsandbox.com/e#61226.0 for
 //some of the code. Counts as Fair Use due to this prototype being "transformative"
@@ -57,9 +60,16 @@ void main( void ) {
 	color. b = (pos.x + pos.y) * color.b;
 
 	color *= rand(color)*color;
+	
+	vec3 color2 = color;
+	
+	//color2;
+	color2.r += (cos( position.x * cos( 1.0 / 30.0 ) * 130.0 ) + cos( position.y * cos( 1.0 / 85.0 ) * 16.0 ))*color.r;
+	color2.g += (cos( position.y * cos( 1.0 / 30.0 ) * 130.0 ) + cos( position.x * cos( 1.0 / 85.0 ) * 160.0 ))*color.g;
+	color2.b += (cos( position.x * sin( 1.0 / 30.0 ) * 130.0 ) + cos( position.y * cos( 1.0 / 85.0 ) * 160.0 ))*color.b;
 
 	//color *= time;
 	
-	gl_FragColor = vec4( color, 1.0 );
+	gl_FragColor = vec4( color2, 1.0 );
 
 }
