@@ -11,8 +11,8 @@ uniform vec2 resolution;
 //NEL Prototype: The end product should eventually result in a shader that conjures forth and shows
 //a single cube entirely through the power of emotions.
 //
-//Incomplete; Well, got a pulsing red signal...
-
+//Incomplete; Alright, got the "Pure Intent" behind the simulated reality to finally show. 
+//Just need it to command the relevant drawing protocals...
 
 //Normally, GLSL does not allow for persistance of information. But, it allows for a very keen
 //simulation of a hardware system designed to work with pure analogue signals...
@@ -82,7 +82,7 @@ void main( void ) {
 	color2.b = rand(time*(position.x) + (position.y));
 	
 	
-	color2 *=  ((color2 * rand(position.x+position.y))*color);
+	color2 *=  (color2 * color);
 	
 	//color2 *= color2 + cosSig;
 	//color2;
