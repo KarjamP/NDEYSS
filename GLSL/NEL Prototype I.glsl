@@ -11,8 +11,9 @@ uniform vec2 resolution;
 //NEL Prototype: The end product should eventually result in a shader that conjures forth and shows
 //a single cube entirely through the power of emotions.
 //
-//Incomplete; Closer, but no cegar; at least the current imagery is remniscient of the intended
-//appearance...
+//Incomplete; Red static; has the tendency to cause the appearance of an illusion to those
+//with an affinity to emotions perceiving this image. Now, just need to figure out how to
+//get said static to control the pixels as to actually allow the cube to appear.
 
 
 //Normally, GLSL does not allow for persistance of information. But, it allows for a very keen
@@ -49,7 +50,8 @@ void main( void ) {
 	
 	vec2 pos = vec2 (sin(position.x*time),sin(position.y*time));
 
-	vec3 color = vec3(5.0,1.0,2.0);
+	vec3 color = (vec3(5.0,1.0,2.0)) * time; //Anchoring to time makes it conformant to its rules,
+						 //as much as it causes the variable to steadily climb...
 	//color.r += sin( position.x * cos( time / 15.0 ) * 80.0 ) + cos( position.y * cos( time / 15.0 ) * 10.0 );
 	//color.g += sin( position.y * sin( time / 10.0 ) * 40.0 ) + cos( position.x * sin( time / 25.0 ) * 40.0 );
 	//color.b += sin( position.x * sin( time / 5.0 ) * 10.0 ) + sin( position.y * sin( time / 35.0 ) * 80.0 );
@@ -61,13 +63,14 @@ void main( void ) {
 
 	color *= rand(color)*color;
 	
-	vec3 color2 = color;
+	vec3 color2 = normalize(color);
 	
 	//color2;
-	color2.r += (cos( position.x * cos( 1.0 / 30.0 ) * 130.0 ) + cos( position.y * cos( 1.0 / 85.0 ) * 16.0 ))*color.r;
-	color2.g += (cos( position.y * cos( 1.0 / 30.0 ) * 130.0 ) + cos( position.x * cos( 1.0 / 85.0 ) * 160.0 ))*color.g;
-	color2.b += (cos( position.x * sin( 1.0 / 30.0 ) * 130.0 ) + cos( position.y * cos( 1.0 / 85.0 ) * 160.0 ))*color.b;
+	color2.r += (cos( position.x * cos( color2.r ) ) + cos( position.y * cos( color2.r ) ))*color2.r;
+	color2.g += (cos( position.x * cos( color2.g ) ) + cos( position.y * cos( color2.g ) ))*color2.g;
+	color2.b += (cos( position.x * cos( color2.b ) ) + cos( position.y * cos( color2.b ) ))*color2.b;
 
+	color2 = normalize(color2);
 	//color *= time;
 	
 	gl_FragColor = vec4( color2, 1.0 );
