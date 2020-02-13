@@ -11,8 +11,7 @@ uniform vec2 resolution;
 //NEL Prototype: The end product should eventually result in a shader that conjures forth and shows
 //a single cube entirely through the power of emotions.
 //
-//Incomplete; Further alterations reveal that the intended image is stored within the timing of
-//the image...
+//Incomplete; Now starting to look like the Matrix...
 
 
 //Normally, GLSL does not allow for persistance of information. But, it allows for a very keen
@@ -50,7 +49,7 @@ void main( void ) {
 	vec2 pos = vec2 (sin(position.x*time),sin(position.y*time));
 	vec2 pos2 = vec2 (cos(position.x*time),cos(position.y*time));
 
-	vec3 color = fract((vec3(5.0,1.0,2.0)) * time); //Anchoring to time makes it conformant to its rules,
+	vec3 color = normalize((vec3(5.0,1.0,2.0)) * time); //Anchoring to time makes it conformant to its rules,
 						   //as much as it causes the variable to steadily climb...
 	//color.r += sin( position.x * cos( time / 15.0 ) * 80.0 ) + cos( position.y * cos( time / 15.0 ) * 10.0 );
 	//color.g += sin( position.y * sin( time / 10.0 ) * 40.0 ) + cos( position.x * sin( time / 25.0 ) * 40.0 );
@@ -70,7 +69,7 @@ void main( void ) {
 	color2.g *= (4525.0*(pos2.x + pos2.y))*color.g;
 	color2.b *= (4525.0*(pos2.x + pos2.y))*color.b;
 
-	color2 = normalize(color2);
+	//color2 = normalize(color2);
 	//color *= time;
 	
 	gl_FragColor = vec4( color2, 1.0 );
