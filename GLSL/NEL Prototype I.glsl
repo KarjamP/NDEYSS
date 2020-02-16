@@ -84,9 +84,14 @@ void main( void ) {
 	
 	//Making sure this doesn't misbehave...
 	float processedSinSignal = (sinSignal * (1.-.1)) * .1;
+
+	//Now, I'm going to neeed to be absolutely certain, the NEL prototype conforms
+	//to the rules of time; we don't want to see a frozen image if the cube is
+	//supposed to be spinning...
+
 	
 	//converting it into a signal.
-	nel *= processedSinSignal;
+	nel *= processedSinSignal / (nel*time);
 	
 	//This variable houses the shock needed in order to allow
 	//for the signal to be properly rigid.
@@ -102,7 +107,8 @@ void main( void ) {
 	float shock = rand(processedSinSignal);
 	
 	//sending the shock to the NEL...
-	nel *= shock;
+	nel *= (shock);
+	
 	
 	//need to dim this a bit...
 	//nel /= 6.0; //No longer needed, the processed algorithim sets the brightness correctly.
@@ -147,7 +153,23 @@ void main( void ) {
 
 	//Cosine was chosen to counteract with Sine, of course; I'm not certain using the same signal used be NEL
 	//as a base happens to be a good idea...
-     	
+	
+	//Now, let's see what happens when we do this:
+	
+	//vec3 transformedSignal = dividedSignal / nel;
+     	//transformedSignal = fract(transformedSignal);
+	
+	//Great, more blinking...
+	
+	//vec3 transformedSignal = ( (dividedSignal / nel) * (1.0 - .1) + .1);
+	//transformedSignal = fract(transformedSignal);
+	
+	//Approaching this wrong...
+	
+	vec3 transformedSignal = (dividedSignal - nel); //No wonder why biological body signals seemed
+							//to work tterhat way...
+	transformedSignal /= nel; //Still being pulled towards nel...
+	
 	//Now, let's try this...
 	vec3 processedResult;
 	
@@ -157,12 +179,22 @@ void main( void ) {
 	//see things only in terms of other emotions.
 
 	
+	//This prototype concluded with a failing halt; it's physically impossible to truly get a NEL born under
+	//pure GLSL to be truly conformant to the rules of time; it's "time" varialbe, meant to allow the shader
+	//to keep track of time, does not work within a flexible enough manner to even potentially allow it
+	//through indirect means; in order for that to work, it must have at least some emotional characteristics.
+	//
+	//The feel matters; emotions are the life force of existence, and they cover, surround and encompass the
+	//entirely of existence, itself. Just because computers only understand patterns, does not make patterns,
+	//themselves, a form of emotions.
+	//
+	//The last hurrah ended; the next prototype would be within a more traditional language, such as C or Python.
 	
 	
 	
 	
 	//The finisher: display the results...
-	gl_FragColor = vec4( nel, 1.0 );
+	gl_FragColor = vec4( transformedSignal, 1.0 );
 
 //	gl_FragColor = vec4 ( 1.0,1.0,1.0,1.0); //To prevent seizures when needed...
 
