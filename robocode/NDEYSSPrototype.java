@@ -103,7 +103,7 @@ import java.io.PrintStream;
 			 * Needed to properly sync bodily responses with their
 			 * intended actions.
 			 */
-			nextAction = brain; 
+			nextAction = 1.0; 
 		}
 	
 	double getNextAction(double minimunValue, double maximunValue)
@@ -135,7 +135,7 @@ import java.io.PrintStream;
 			// of the consciousness's intended actions; by treating the consciousness as an anchor (symbolically
 			// represented in code as a weighted sum equation), the mind would pull the bodily responses towards
 			// the direction of its intended actions.
-			actionCalc.setSeed ( Double.doubleToLongBits((nextAction == brain) ? brain : (brain * nextAction) ) );
+			actionCalc.setSeed (Double.doubleToLongBits((1.0/brain) * nextAction));
 			nextAction = actionCalc.nextDouble();		
 	
 			//Sets the end ensuing variable to the intended range (for ease of programming).			
@@ -194,7 +194,7 @@ public class NDEYSSPrototype extends AdvancedRobot
 		if (theMind.getNextAction(0.0,10.0) >= 6.0)
 		{
 				this.setAhead( (theMind.getNextAction (-200.0,200.0)) );
-		} else
+		} else 
 		{
 			this.setAhead(0);
 		} 
