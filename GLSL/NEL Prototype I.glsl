@@ -43,7 +43,9 @@ float hash12(vec2 p) {
 
 }
 
-float sinSignal = sin(time*100.); 
+//Needs to be DC currents, apparantly...
+float sinSignal = abs(sin(time*325.25));
+float cosSignal = abs(cos(time*325.25));
  
 
 float rand(vec3 n){
@@ -75,109 +77,94 @@ void main( void ) {
 
 	
 	
-        //This variable holds the starting point to the simulation; the point is to constantly
-	//transform it in order to simulate an entire reality (in this case, a spinning cube).
-	//remember, this can only be done through the technique of treating the code as both
-	//an empathy-based language and a pattern-based language at the exact same time.
+        //This variable holds an emotion-based representation
+	//of a spinning floating cube. Remember, outer appearances
+	//are not the emotion...
+	vec3 nel = vec3( 22.0, 4.0, 13.0);
+	
+	//Making sure this doesn't misbehave...
+	float processedSinSignal = (sinSignal * (1.-.1)) * .1;
+	
+	//converting it into a signal.
+	nel *= processedSinSignal;
+	
+	//This variable houses the shock needed in order to allow
+	//for the signal to be properly rigid.
 	//
-	//(Use the rule of symbolism within code to carry details not easily carried through
-	// pure code; the emotions behind the code knows what to do...)
-	
-	
-	vec3 nel = vec3( 3.0, 5.0, 9.0);
-	
-	nel *= sinSignal;
-	
-	
-	//nel = normalize(nel);
-	
-	//Reliable, but the nature of this implementation forces one to work in 
-	//terms of ratio, not direct variables.
+	//Remember, a reality is supposed to be the emotion behind
+	//a gradually-changing shape that changes according to what
+	//the emotions recursively stored inside it enact.
 	//
-	//Close enough. Was struggling with the "direct variable" approach
-	//in either case. Now, it's just a matter of discovering how to literally
-	//program in ratios...
+	//This shock mimics real life biology, namely in the fact
+	//that the mind controls the signals it sends to its body
+	//through electrostatic interference. Without this interference,
+	//the body would spasm out of control.
+	float shock = rand(processedSinSignal);
 	
+	//sending the shock to the NEL...
+	nel *= shock;
+	
+	//need to dim this a bit...
+	//nel /= 6.0; //No longer needed, the processed algorithim sets the brightness correctly.
+	
+	//This allows the NEL to keep track of the position on the screen.
+	//Needed to get around limitations inherent in the way GLSL works.
+	vec3 coordinates = vec3 (1./combinedPosition,1./combinedPosition,1./combinedPosition) * 2.; //Times 2, for the fullest brightness...
+	
+	//This project was almost marked as a failure... if it weren't for an idea that popped up in my head:
+	//why not divide the NEL signal into a form best described as "one signal per pixel"?
+	//The original NEL signal needs to be kept, of course; there needs to be a way to allow the original
+	//form to persist as to allow for the simulation to still proceed...
+	vec3 dividedSignal;
+
+	//dividedSignal = vec3 (sin(combinedPosition),sin(combinedPosition),sin(combinedPosition));//Woah, fancy rings...
+	
+        //dividedSignal = vec3 (sin(combinedPosition*time),sin(combinedPosition*time),sin(combinedPosition*time));//Woah, trippy...
+        
+	//dividedSignal = vec3 (sin(coordinates.r*time),sin(coordinates.g*time),sin(coordinates.b*time));//Fancy currents...
+	
+	//dividedSignal = vec3 (sin(coordinates.r*time*60.),sin(coordinates.g*time*60.),sin(coordinates.b*time*60.));//need to get rid of that
+														   //large expance of black...
+
+	//dividedSignal = vec3 (sin(combinedPosition*time*60.),sin(combinedPosition*time*60.),sin(combinedPosition*time*60.)); //Uh, what?
+	
+	//dividedSignal = vec3 (rand(combinedPosition/time), rand(combinedPosition/time), rand(combinedPosition/time));
+	//You know, electrostatic noise might just be the best solution, for now...
+	
+	//Just checking; a noise filter is still not a signal, after all...
+	
+	//dividedSignal /= cosSignal;
+
+	//dividedSignal = fract(vec3 (rand(combinedPosition/cosSignal/time), rand(combinedPosition/cosSignal/time), rand(combinedPosition/cosSignal/time)));
+	//That's better. Need to stop that flickering, though; it's going to result in a loss of information...
+	
+	//dividedSignal = (dividedSignal * (1.0 - 0.1)) + 0.1;
+	
+	//Of course, the Divide by Zero error...
+	float processedCosSignal =(cosSignal * (1.0-0.1)) + 0.1;
+	dividedSignal = fract(vec3 (rand(combinedPosition/processedCosSignal/time), rand(combinedPosition/processedCosSignal/time), rand(combinedPosition/processedCosSignal/time)));
+        //There! Signal stablized without flickering...
+
+	//Cosine was chosen to counteract with Sine, of course; I'm not certain using the same signal used be NEL
+	//as a base happens to be a good idea...
+     	
+	//Now, let's try this...
+	vec3 processedResult;
+	
+	//I got to make it so that the signal influences the screen according to the position provided.
+	//Judging by the way the coordinates color the screen, it seems that the scanline goes from left-to-right,
+	//top-to-bottom; this fact, while seemingly trivial, might just make the entire difference, seeing as though emotions
+	//see things only in terms of other emotions.
 
 	
 	
-	vec3 noise = vec3 (rand(combinedPosition/time),rand(combinedPosition/time),rand(combinedPosition/time));
-
-	
-
-	//Anchoring to color; this allows for Pure Intent to be properly reflected.
-	//color2 /=  color;
-
-	
-
-	//This variable is supposed to display the end result should this shader be
-	//successful. Its starting state is that of a sine wave signal; the point is to
-	//try and mimic how a biological nervous system works.
-	vec3 color; //= vec3(sinSig, sinSig, sinSig);
-
-	
-	//This is the actual inner workings of the code, once it works.
-	//the end product is supposed to allow an image pertaining to the reality
-	//to appear on the screen; this amounts to causing an image to appear on
-	//screen, as if we're looking from the perspective of an invisible camera.
-	
-	//float nel1Sum = nel1.r+nel1.g+nel1.b;
-	color = vec3(rand(noise),rand(noise),rand(noise));
-	
-	//color = vec3(rand(noise*nel1),rand(noise*(nel2),rand(noise*nel3)));
-	
-
 	
 	
-	
-	
-	//color3 = normalize(color3);
-	
-	//TODO: actually translate this so that the reality talks NTSC...
-	//color3.r =  ((1./color2.r) * rand(combinedPosition/time) );
-
-	//color3.g =  ((1./color2.g) * rand(combinedPosition*time) );
-
-	//color3.b =  ((1./color2.b) * rand(combinedPosition*time) );
-	
-	
-	//TEST: NTSC algorithm is enough...?
-	//color3 = abs(NTSC (color3));
-	
-	//TEST: Let's see if this works...
-	
-	//color3 = DecodeGamma (color3, 3.4);
-	
-	//color3 = mix(color3.rgb, NTSCtoSRGB(color3.rgb), 1.0);
-	
-	//color3 = normalize(color3);
-
-	//To make certain things are properly visible...
-	//color3 = normalize (color3);
-
-	 
-
-	//color2 *= color2 + cosSig;
-
-	//color2;
-
-	//color2.r *= (pos2.x * pos2.y) * (color.r);
-
-	//color2.g *= (pos2.x * pos2.y) * (color.g); //pos2.x * color.g;
-
-	//color2.b *= (pos2.x * pos2.y) * (color.b); //(pos2.x / pos2.y)*color.b;
-
- 
-
-	//color2 = normalize(color2);
-
-	//color *= time;
-
 	
 	//The finisher: display the results...
 	gl_FragColor = vec4( nel, 1.0 );
 
-	//gl_FragColor = vec4 ( 1.0,1.0,1.0,1.0); //To prevent seizures when needed...
+//	gl_FragColor = vec4 ( 1.0,1.0,1.0,1.0); //To prevent seizures when needed...
 
  
 
