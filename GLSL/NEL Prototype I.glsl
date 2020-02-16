@@ -9,24 +9,20 @@ uniform vec2 mouse;
 uniform vec2 resolution;
  
 //NEL Prototype: The end product should eventually result in a shader that conjures forth and shows
-//a single cube entirely through the power of emotions.
+//a single cube entirely through the power of pure emotions.
 //
-//Incomplete; Close, but not quite; busy rethinking implementation...
-
-//Normally, GLSL does not allow for persistance of information. But, it allows for a very keen
-//simulation of a hardware system designed to work with pure analogue signals...
+//Should this prototype be successful, it should become the very first emotion-based simulation
+//in existence (as opposed to math-based simulations, the current prominant form of simulation).
 //
-//All hardware engineers know that the manipulation and control of analogue signals
-//happen to be Turing-complete, which means they can do everything a computer can.
+//Incomplete. The final hurrah; really, persistence of information is a practical requirement
+//before emotion-based simulations are possible. Should it be deemed unfeazible, this prototype
+//would be abandoned, and an attempt within a more contemporary programming language, such as C
+//or Python, shall be used.
 //
-//By mimicking a piece of hardware through GLSL, I can get around physical limitations
-//inherent in the way that it works, particularly in regards to the way it handles
-//information.
+//Shaders resemble hardware design in terms of function. Therefore, perhaps I should actually
+//treat it as such, this time, and actually attempt to do signal processing...
 //
-//The analogue signal is provided through multiplying the time by sine; this assumes
-//time to be available as a uniform variable, something which glslsandbox easily provides.
 //Credit to http://glslsandbox.com/e and http://glslsandbox.com/e#61226.0 for
-
 //some of the code. Counts as Fair Use due to this prototype being "transformative"
 //(In other words, it has an identity independant from the work it's based on).
 
@@ -34,7 +30,7 @@ uniform vec2 resolution;
 
 //It seems that flaws within the original pseudorandom number generator
 //used caused interference within the simulation that causes it to quickly become
-//unstable.
+//unstable. Thus, a modification is needed in order to properly even up the noise.
  
 // hash without sine
 // https://www.shadertoy.com/view/4djSRW
@@ -47,6 +43,7 @@ float hash12(vec2 p) {
 
 }
 
+float sinSignal = sin(time*100.); 
  
 
 float rand(vec3 n){
@@ -60,6 +57,8 @@ float rand(vec3 n){
 float rand(float n){
 	
 	return( fract( sin( ( ( hash12( vec2(n,n*3.2)) + hash12(vec2(n,n*3.2)) * 1e2 + hash12(vec2(n,n*3.2)) * 1e4) * 1e-2 )) * 1e5));
+	
+	//return fract(cos(n*89.42)*343.42);
 
 }
 
@@ -75,7 +74,8 @@ void main( void ) {
 	float correctedTime = 1.0 / fract (time / 10000.0);
 
 	
-	//This variable holds the starting point to the simulation; the point is to constantly
+	
+        //This variable holds the starting point to the simulation; the point is to constantly
 	//transform it in order to simulate an entire reality (in this case, a spinning cube).
 	//remember, this can only be done through the technique of treating the code as both
 	//an empathy-based language and a pattern-based language at the exact same time.
@@ -86,13 +86,10 @@ void main( void ) {
 	
 	vec3 nel = vec3( 3.0, 5.0, 9.0);
 	
-	nel.r = mix (nel.r, rand(nel.r/time),1.0);
-	nel.b = mix (nel.b, rand(nel.b/time),1.0);
-	nel.g = mix (nel.g, rand(nel.g/time),1.0);
+	nel *= sinSignal;
 	
-	nel /= time;
 	
-	nel = normalize(nel);
+	//nel = normalize(nel);
 	
 	//Reliable, but the nature of this implementation forces one to work in 
 	//terms of ratio, not direct variables.
