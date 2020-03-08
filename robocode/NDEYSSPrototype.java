@@ -135,15 +135,25 @@ import java.io.PrintStream;
 			// of the consciousness's intended actions; by treating the consciousness as an anchor (symbolically
 			// represented in code as a weighted sum equation), the mind would pull the bodily responses towards
 			// the direction of its intended actions.
-			actionCalc.setSeed (Double.doubleToLongBits((1.0/brain) * nextAction));
-			nextAction = actionCalc.nextDouble();		
+			actionCalc.setSeed (Double.doubleToLongBits(nextAction / brain));
+			
+			// Next, we're going to have to tell Robocode how intended actions work. Intended actions are emotions
+			// that reflect what an emotion, such as a consciousness, is trying to do; they act as anchors for things
+			// like bodily responces as to allow them to properly interact with their enviroment.
+			//
+			// In the end, nextAction now just pushes away from itself, rather than pulling things closer, or
+			// completely reflecting nextDouble(). This makes sense in hindsight, seeing as though it's how
+			// the future works...
+						
+			//Apparently, Robocode does not take kindly to attempting to use the pseudorandom number generator
+			//within the algorithm, itself; actionBuffer exists to work around this.
+			double actionBuffer = actionCalc.nextDouble();
+			
+			nextAction 	  *= actionBuffer;
+			nextAction 	 -= (int) nextAction;  //Needs to be a number below 1...
 	
 			//Sets the end ensuing variable to the intended range (for ease of programming).			
-			nextAction  = ( (nextAction * (maximunValue - minimunValue) ) + minimunValue);
-			
-			//An anchor, to prevent too much drift; the point is to mimic how a consciousness
-			//is able to animate within our reality.
-			
+			nextAction  = ( (nextAction * (maximunValue - minimunValue) ) + minimunValue);			
 			
 			return nextAction;
 
